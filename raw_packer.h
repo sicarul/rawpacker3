@@ -11,7 +11,7 @@
 #include "variant.h"
 
 class RawPacker : public Reference {
-    OBJ_TYPE(RawPacker,Reference);
+    GDCLASS(RawPacker,Reference);
 
 	Error encode(const String& fmt, const Array& array, uint8_t *buf, int &len);
 	Error decode(const String& fmt, Array& array, const uint8_t *buf, int size);
@@ -24,8 +24,8 @@ protected:
 
 public:
 
-	ByteArray pack(const String& fmt, const Array& array);
-	Array unpack(const String& fmt, const ByteArray& array);
+	PoolByteArray pack(const String& fmt, const Array& array);
+	Array unpack(const String& fmt, const PoolByteArray& array);
     
     RawPacker();
 };

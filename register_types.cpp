@@ -1,12 +1,12 @@
 /* register_types.cpp */
 
+#include "class_db.h"
 #include "register_types.h"
-#include "object_type_db.h"
 #include "raw_packer.h"
 
 void register_rawpacker_types() {
 
-	ObjectTypeDB::register_type<RawPacker>();
+	ClassDB::register_class<RawPacker>();
 }
 
 void unregister_rawpacker_types() {

@@ -2,6 +2,10 @@
 
 Simple binary packing/unpacking for `RawArray` in Godot.
 
+## This fork is for Godot3 compatibility
+
+For Godot2: https://github.com/empyreanx/rawpacker
+
 ## About
 
 `RawPacker` allows `Variant` arrays to be packed into and unpacked from a `RawArray` using a format string. The approach was inspired by Python's `struct.pack` and `struct.unpack` functions.

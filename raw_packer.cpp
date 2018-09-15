@@ -408,28 +408,28 @@ bool RawPacker::is_digit(char c) {
 		c == '8' || c == '9');
 }
 
-ByteArray RawPacker::pack(const String& fmt, const Array& array) {
+PoolByteArray RawPacker::pack(const String& fmt, const Array& array) {
 	
 	int len;
 	Error err = encode(fmt,array,NULL,len);
 	
 	if (err!=OK)
-		return ByteArray();
+		return PoolByteArray();
 	
-	ByteArray res;
+	PoolByteArray res;
 	res.resize(len);
 	
-	ByteArray::Write w = res.write();
+	PoolByteArray::Write w = res.write();
 	encode(fmt, array, w.ptr(), len);
 	
 	return res;
 }
 
-Array RawPacker::unpack(const String& fmt, const ByteArray& array) {
+Array RawPacker::unpack(const String& fmt, const PoolByteArray& array) {
 	
 	Array res;
 	
-	ByteArray::Read r = array.read();
+	PoolByteArray::Read r = array.read();
 	
 	Error err = decode(fmt,res,r.ptr(),array.size());
 	
@@ -441,8 +441,8 @@ Array RawPacker::unpack(const String& fmt, const ByteArray& array) {
 
 void RawPacker::_bind_methods() {
 
-    ObjectTypeDB::bind_method("pack",&RawPacker::pack);
-    ObjectTypeDB::bind_method("unpack",&RawPacker::unpack);
+    ClassDB::bind_method(D_METHOD("pack"), &RawPacker::pack);
+    ClassDB::bind_method(D_METHOD("unpack"), &RawPacker::unpack);
 }
 
 RawPacker::RawPacker() {
