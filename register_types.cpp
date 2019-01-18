@@ -1,6 +1,6 @@
 /* register_types.cpp */
 
-#include "class_db.h"
+#include "core/class_db.h"
 #include "register_types.h"
 #include "raw_packer.h"
 
